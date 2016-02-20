@@ -1,7 +1,7 @@
 /**
  * @file markerjs
  */
-import vjs from 'video.js';
+import vjs from './videojs';
 var Component = vjs.getComponent('Component');
 
 /**

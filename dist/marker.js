@@ -28,13 +28,13 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _video = require('video.js');
+var _videojs = require('./videojs');
 
-var _video2 = _interopRequireDefault(_video);
+var _videojs2 = _interopRequireDefault(_videojs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Component = _video2.default.getComponent('Component');
+var Component = _videojs2.default.getComponent('Component');
 
 /**
  * Progress Bar - Marker
@@ -102,6 +102,6 @@ var Marker = function (_Component) {
 
 Marker.prototype.controlText_ = 'Play Video';
 
-_video2.default.registerComponent('Marker', Marker);
+_videojs2.default.registerComponent('Marker', Marker);
 exports.default = Marker;
 module.exports = exports['default'];

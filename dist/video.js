@@ -44,13 +44,13 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _video = require('video.js');
-
-var _video2 = _interopRequireDefault(_video);
-
 var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
+
+var _videojs = require('./videojs');
+
+var _videojs2 = _interopRequireDefault(_videojs);
 
 var _markerBar = require('./markerBar');
 
@@ -237,7 +237,7 @@ var ReactVideoJsComponent = _wrapComponent('ReactVideoJsComponent')(function (_R
       var playerEl = this.getVideoPlayerEl();
       playerEl.removeAttribute('data-reactid');
 
-      this._player = (0, _video2.default)(playerEl, options);
+      this._player = (0, _videojs2.default)(playerEl, options);
 
       var player = this._player;
 
@@ -259,7 +259,9 @@ var ReactVideoJsComponent = _wrapComponent('ReactVideoJsComponent')(function (_R
     key: 'unmountVideoPlayer',
     value: function unmountVideoPlayer() {
       this.removeResizeEventListener();
-      this._player.dispose();
+      if (!this._player) {
+        this._player.dispose();
+      }
     }
   }, {
     key: 'addEndlessMode',

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
-import vjs from 'video.js';
 import lodash from 'lodash';
+import vjs from './videojs';
 var _forEach = lodash.forEach;
 var _debounce = lodash.debounce;
 var _defaults = lodash.defaults;
@@ -169,7 +169,9 @@ export default class ReactVideoJsComponent extends React.Component {
 
   unmountVideoPlayer() {
     this.removeResizeEventListener();
-    this._player.dispose();
+    if(!this._player){
+      this._player.dispose();
+    }
   }
 
   addEndlessMode() {
