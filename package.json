@@ -1,6 +1,6 @@
 {
   "name": "ss-videojs-react",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "React Component for video.js",
   "main": "dist/video.js",
   "scripts": {
@@ -44,7 +44,6 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.3.13",
     "babel-runtime": "^6.3.19",
-    "babel-plugin-react-transform": "^2.0.0",
-    "babel-plugin-typecheck": "^3.6.0"
+    "babel-plugin-react-transform": "^2.0.0"
   }
 }
