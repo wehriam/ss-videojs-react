@@ -22,6 +22,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @file markerjs
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
+
 var Component = _videojs2.default.getComponent('Component');
 
 /**
@@ -60,6 +61,7 @@ var Marker = function (_Component) {
    * @return {String} The constructed class name
    * @method buildCSSClass
    */
+
 
   _createClass(Marker, [{
     key: 'createEl',

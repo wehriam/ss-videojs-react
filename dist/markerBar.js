@@ -22,6 +22,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @file markerjs
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
+
 var Component = _videojs2.default.getComponent('Component');
 
 /**
