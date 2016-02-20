@@ -184,10 +184,7 @@ var ReactVideoJsComponent = _wrapComponent('ReactVideoJsComponent')(function (_R
   }, {
     key: 'getVideoPlayerOptions',
     value: function getVideoPlayerOptions() {
-      return _defaults({}, this.props.options, {
-        height: this.props.resize ? 'auto' : this.props.height || DEFAULT_HEIGHT,
-        width: this.props.resize ? 'auto' : this.props.width || DEFAULT_WIDTH
-      }, DEFAULT_VIDEO_OPTIONS);
+      return _defaults({}, this.props.options, DEFAULT_VIDEO_OPTIONS);
     }
   }, {
     key: 'getVideoResizeOptions',
@@ -379,6 +376,7 @@ var ReactVideoJsComponent = _wrapComponent('ReactVideoJsComponent')(function (_R
     value: function render() {
       var videoPlayerClasses = (0, _classnames2.default)({
         'video-js': true,
+        'vjs-fill': this.props.resize,
         'vjs-default-skin': this.props.vjsDefaultSkin,
         'vjs-big-play-centered': this.props.vjsBigPlayCentered
       });

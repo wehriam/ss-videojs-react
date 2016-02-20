@@ -99,10 +99,7 @@ export default class ReactVideoJsComponent extends React.Component {
 
   getVideoPlayerOptions() {
     return _defaults(
-      {}, this.props.options, {
-      height: this.props.resize ? 'auto' : (this.props.height || DEFAULT_HEIGHT),
-      width: this.props.resize ? 'auto' : (this.props.width || DEFAULT_WIDTH)
-    }, DEFAULT_VIDEO_OPTIONS);
+      {}, this.props.options, DEFAULT_VIDEO_OPTIONS);
   }
 
   getVideoResizeOptions() {
@@ -271,6 +268,7 @@ export default class ReactVideoJsComponent extends React.Component {
   render() {
     var videoPlayerClasses = cx({
       'video-js': true,
+      'vjs-fill': this.props.resize,
       'vjs-default-skin': this.props.vjsDefaultSkin,
       'vjs-big-play-centered': this.props.vjsBigPlayCentered
     });
