@@ -4,37 +4,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+var _react = require('react');
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _redboxReact2 = require('redbox-react');
-
-var _redboxReact3 = _interopRequireDefault(_redboxReact2);
-
-var _react2 = require('react');
-
-var _react3 = _interopRequireDefault(_react2);
-
-var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
-
-var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
 
@@ -62,24 +36,11 @@ var _marker2 = _interopRequireDefault(_marker);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _components = {
-  ReactVideoJsComponent: {
-    displayName: 'ReactVideoJsComponent'
-  }
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
-  filename: 'src/video.jsx',
-  components: _components,
-  locals: [],
-  imports: [_react3.default, _redboxReact3.default]
-});
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _wrapComponent(id) {
-  return function (Component) {
-    return _reactTransformCatchErrors2(Component, id);
-  };
-}
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _forEach = _lodash2.default.forEach;
 var _debounce = _lodash2.default.debounce;
@@ -98,21 +59,21 @@ var DEFAULT_VIDEO_OPTIONS = {
 
 function noop() {}
 
-var ReactVideoJsComponent = _wrapComponent('ReactVideoJsComponent')(function (_React$Component) {
-  (0, _inherits3.default)(ReactVideoJsComponent, _React$Component);
+var ReactVideoJsComponent = function (_React$Component) {
+  _inherits(ReactVideoJsComponent, _React$Component);
 
   function ReactVideoJsComponent() {
-    (0, _classCallCheck3.default)(this, ReactVideoJsComponent);
+    _classCallCheck(this, ReactVideoJsComponent);
 
     //initial state
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(ReactVideoJsComponent).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReactVideoJsComponent).call(this));
 
     _this.state = {};
     return _this;
   }
 
-  (0, _createClass3.default)(ReactVideoJsComponent, [{
+  _createClass(ReactVideoJsComponent, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.mountVideoPlayer();
@@ -355,7 +316,7 @@ var ReactVideoJsComponent = _wrapComponent('ReactVideoJsComponent')(function (_R
   }, {
     key: 'renderDefaultWarning',
     value: function renderDefaultWarning() {
-      return _react3.default.createElement(
+      return _react2.default.createElement(
         'p',
         null,
         'test'
@@ -381,41 +342,42 @@ var ReactVideoJsComponent = _wrapComponent('ReactVideoJsComponent')(function (_R
         'vjs-big-play-centered': this.props.vjsBigPlayCentered
       });
 
-      return _react3.default.createElement(
+      return _react2.default.createElement(
         'video',
         { ref: 'videoPlayer', className: videoPlayerClasses },
         this.props.children || this.renderDefaultWarning()
       );
     }
   }]);
+
   return ReactVideoJsComponent;
-}(_react3.default.Component));
+}(_react2.default.Component);
 
 exports.default = ReactVideoJsComponent;
 
 
 ReactVideoJsComponent.propTypes = {
-  src: _react3.default.PropTypes.string.isRequired,
-  height: _react3.default.PropTypes.number,
-  width: _react3.default.PropTypes.number,
-  endlessMode: _react3.default.PropTypes.bool,
-  options: _react3.default.PropTypes.object,
-  onReady: _react3.default.PropTypes.func,
-  eventListeners: _react3.default.PropTypes.object,
-  resize: _react3.default.PropTypes.bool,
-  resizeOptions: _react3.default.PropTypes.shape({
-    aspectRatio: _react3.default.PropTypes.number,
-    shortWindowVideoHeightAdjustment: _react3.default.PropTypes.number,
-    defaultVideoWidthAdjustment: _react3.default.PropTypes.number,
-    debounceTime: _react3.default.PropTypes.number
+  src: _react2.default.PropTypes.string.isRequired,
+  height: _react2.default.PropTypes.number,
+  width: _react2.default.PropTypes.number,
+  endlessMode: _react2.default.PropTypes.bool,
+  options: _react2.default.PropTypes.object,
+  onReady: _react2.default.PropTypes.func,
+  eventListeners: _react2.default.PropTypes.object,
+  resize: _react2.default.PropTypes.bool,
+  resizeOptions: _react2.default.PropTypes.shape({
+    aspectRatio: _react2.default.PropTypes.number,
+    shortWindowVideoHeightAdjustment: _react2.default.PropTypes.number,
+    defaultVideoWidthAdjustment: _react2.default.PropTypes.number,
+    debounceTime: _react2.default.PropTypes.number
   }),
-  vjsDefaultSkin: _react3.default.PropTypes.bool,
-  vjsBigPlayCentered: _react3.default.PropTypes.bool,
-  startWithControlBar: _react3.default.PropTypes.bool,
-  markers: _react3.default.PropTypes.arrayOf(_react3.default.PropTypes.object),
-  children: _react3.default.PropTypes.element,
-  dispose: _react3.default.PropTypes.bool,
-  onNextVideo: _react3.default.PropTypes.func
+  vjsDefaultSkin: _react2.default.PropTypes.bool,
+  vjsBigPlayCentered: _react2.default.PropTypes.bool,
+  startWithControlBar: _react2.default.PropTypes.bool,
+  markers: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object),
+  children: _react2.default.PropTypes.element,
+  dispose: _react2.default.PropTypes.bool,
+  onNextVideo: _react2.default.PropTypes.func
 };
 
 ReactVideoJsComponent.defaultProps = {
@@ -433,4 +395,3 @@ ReactVideoJsComponent.defaultProps = {
 };
 
 ReactVideoJsComponent.displayName = ReactVideoJsComponent.constructor.name;
-module.exports = exports['default'];
