@@ -59,15 +59,15 @@ var DEFAULT_VIDEO_OPTIONS = {
 
 function noop() {}
 
-var ReactVideoJsComponent = function (_React$Component) {
-  _inherits(ReactVideoJsComponent, _React$Component);
+var ReactVideoJsComponent = function (_Component) {
+  _inherits(ReactVideoJsComponent, _Component);
 
-  function ReactVideoJsComponent() {
+  function ReactVideoJsComponent(props) {
     _classCallCheck(this, ReactVideoJsComponent);
 
     //initial state
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReactVideoJsComponent).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReactVideoJsComponent).call(this, props));
 
     _this.state = {};
     return _this;
@@ -351,10 +351,7 @@ var ReactVideoJsComponent = function (_React$Component) {
   }]);
 
   return ReactVideoJsComponent;
-}(_react2.default.Component);
-
-exports.default = ReactVideoJsComponent;
-
+}(_react.Component);
 
 ReactVideoJsComponent.propTypes = {
   src: _react2.default.PropTypes.string.isRequired,
@@ -379,7 +376,6 @@ ReactVideoJsComponent.propTypes = {
   dispose: _react2.default.PropTypes.bool,
   onNextVideo: _react2.default.PropTypes.func
 };
-
 ReactVideoJsComponent.defaultProps = {
   endlessMode: false,
   options: DEFAULT_VIDEO_OPTIONS,
@@ -393,5 +389,4 @@ ReactVideoJsComponent.defaultProps = {
   markers: [],
   onNextVideo: noop
 };
-
-ReactVideoJsComponent.displayName = ReactVideoJsComponent.constructor.name;
+exports.default = ReactVideoJsComponent;

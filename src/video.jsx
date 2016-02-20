@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import lodash from 'lodash';
@@ -25,10 +25,48 @@ const DEFAULT_VIDEO_OPTIONS = {
 function noop() {}
 
 
-export default class ReactVideoJsComponent extends React.Component {
+export default class ReactVideoJsComponent extends Component {
 
-  constructor() {
-    super();
+  static propTypes = {
+    src: React.PropTypes.string.isRequired,
+    height: React.PropTypes.number,
+    width: React.PropTypes.number,
+    endlessMode: React.PropTypes.bool,
+    options: React.PropTypes.object,
+    onReady: React.PropTypes.func,
+    eventListeners: React.PropTypes.object,
+    resize: React.PropTypes.bool,
+    resizeOptions: React.PropTypes.shape({
+      aspectRatio: React.PropTypes.number,
+      shortWindowVideoHeightAdjustment: React.PropTypes.number,
+      defaultVideoWidthAdjustment: React.PropTypes.number,
+      debounceTime: React.PropTypes.number
+    }),
+    vjsDefaultSkin: React.PropTypes.bool,
+    vjsBigPlayCentered: React.PropTypes.bool,
+    startWithControlBar: React.PropTypes.bool,
+    markers: React.PropTypes.arrayOf(React.PropTypes.object),
+    children: React.PropTypes.element,
+    dispose: React.PropTypes.bool,
+    onNextVideo: React.PropTypes.func
+  };
+
+  static defaultProps = {
+    endlessMode: false,
+    options: DEFAULT_VIDEO_OPTIONS,
+    onReady: noop,
+    eventListeners: {},
+    resize: false,
+    resizeOptions: {},
+    vjsDefaultSkin: true,
+    vjsBigPlayCentered: true,
+    startWithControlBar: false,
+    markers: [],
+    onNextVideo: noop
+  };
+
+  constructor(props) {
+    super(props);
     //initial state
     this.state = {
        
@@ -280,43 +318,3 @@ export default class ReactVideoJsComponent extends React.Component {
     );
   }
 }
-
-ReactVideoJsComponent.propTypes = {
-    src: React.PropTypes.string.isRequired,
-    height: React.PropTypes.number,
-    width: React.PropTypes.number,
-    endlessMode: React.PropTypes.bool,
-    options: React.PropTypes.object,
-    onReady: React.PropTypes.func,
-    eventListeners: React.PropTypes.object,
-    resize: React.PropTypes.bool,
-    resizeOptions: React.PropTypes.shape({
-      aspectRatio: React.PropTypes.number,
-      shortWindowVideoHeightAdjustment: React.PropTypes.number,
-      defaultVideoWidthAdjustment: React.PropTypes.number,
-      debounceTime: React.PropTypes.number
-    }),
-    vjsDefaultSkin: React.PropTypes.bool,
-    vjsBigPlayCentered: React.PropTypes.bool,
-    startWithControlBar: React.PropTypes.bool,
-    markers: React.PropTypes.arrayOf(React.PropTypes.object),
-    children: React.PropTypes.element,
-    dispose: React.PropTypes.bool,
-    onNextVideo: React.PropTypes.func
-};
-
-ReactVideoJsComponent.defaultProps = {
-    endlessMode: false,
-    options: DEFAULT_VIDEO_OPTIONS,
-    onReady: noop,
-    eventListeners: {},
-    resize: false,
-    resizeOptions: {},
-    vjsDefaultSkin: true,
-    vjsBigPlayCentered: true,
-    startWithControlBar: false,
-    markers: [],
-    onNextVideo: noop
-};
-
-ReactVideoJsComponent.displayName = ReactVideoJsComponent.constructor.name;
