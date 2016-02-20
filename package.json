@@ -1,5 +1,5 @@
 {
-  "name": "videojs-react",
+  "name": "ss-videojs-react",
   "version": "0.1.7",
   "description": "React Component for video.js",
   "main": "lib/video.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattotodd/videojs-react.git"
+    "url": "git+https://github.com/goskipstone/videojs-react.git"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org/"
