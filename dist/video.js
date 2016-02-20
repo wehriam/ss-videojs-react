@@ -355,7 +355,6 @@ var ReactVideoJsComponent = function (_React$Component) {
 
 exports.default = ReactVideoJsComponent;
 
-
 ReactVideoJsComponent.propTypes = {
   src: _react2.default.PropTypes.string.isRequired,
   height: _react2.default.PropTypes.number,
