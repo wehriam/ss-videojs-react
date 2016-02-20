@@ -1,8 +1,3 @@
-/**
- * @jsx React.DOM
- */
-'use strict';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactVideoJsComponent from '../video.jsx'

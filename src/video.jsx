@@ -1,10 +1,5 @@
-/**
- * @jsx React.DOM
- */
-'use strict';
-
 import React from 'react';
-import  ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import vjs from 'video.js';
 import lodash from 'lodash';
