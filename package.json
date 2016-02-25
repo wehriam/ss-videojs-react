@@ -38,8 +38,7 @@
     "classnames": "^2.2.0",
     "lodash": "^4.5.0",
     "react": "^0.14.2",
-    "react-dom": "^0.14.2",
-    "video.js": "^5.8"
+    "react-dom": "^0.14.2"
   },
   "devDependencies": {
     "babel-core": "^6.5.2",
