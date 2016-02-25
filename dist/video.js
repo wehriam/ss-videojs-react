@@ -237,7 +237,7 @@ var ReactVideoJsComponent = function (_Component) {
     value: function addResizeEventListener() {
       var debounceTime = this.getVideoResizeOptions().debounceTime;
 
-      this._handleVideoPlayerResize = _debounce(this.handleVideoPlayerResize, debounceTime);
+      this._handleVideoPlayerResize = _debounce(this.handleVideoPlayerResize.bind(this), debounceTime);
       window.addEventListener('resize', this._handleVideoPlayerResize);
     }
   }, {
