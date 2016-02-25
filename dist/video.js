@@ -108,7 +108,6 @@ var ReactVideoJsComponent = function (_Component) {
 
       if (currentSrc !== newSrc) {
         this.setVideoPlayerSrc(newSrc);
-      } else if (isEndless === willBeEndless) {
         this.restartVideo();
       }
     }

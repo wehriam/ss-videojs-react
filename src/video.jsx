@@ -105,7 +105,6 @@ export default class ReactVideoJsComponent extends Component {
 
     if (currentSrc !== newSrc) {
       this.setVideoPlayerSrc(newSrc);
-    } else if (isEndless === willBeEndless) {
       this.restartVideo();
     }
   }
