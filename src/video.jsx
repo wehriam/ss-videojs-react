@@ -17,7 +17,7 @@ const DEFAULT_ADJUSTED_SIZE = 0;
 const DEFAULT_RESIZE_DEBOUNCE_TIME = 500;
 const DEFAULT_VIDEO_OPTIONS = {
   preload: 'auto',
-  autoplay: true,
+  autoPlay: true,
   controls: true
 };
 
@@ -248,7 +248,7 @@ export default class ReactVideoJsComponent extends Component {
   }
 
   restartVideo() {
-    this._player.currentTime(0).play();
+    this._player.currentTime(0);
   }
 
   togglePauseVideo() {
@@ -309,9 +309,12 @@ export default class ReactVideoJsComponent extends Component {
       'vjs-default-skin': this.props.vjsDefaultSkin,
       'vjs-big-play-centered': this.props.vjsBigPlayCentered
     });
-
+    var inputProps = this.props.options
     return (
-      <video ref="videoPlayer" className={videoPlayerClasses}>
+      <video ref="videoPlayer" 
+        className={videoPlayerClasses}
+        {...inputProps}
+      >
         {this.props.children || this.renderDefaultWarning()}
       </video>
     );

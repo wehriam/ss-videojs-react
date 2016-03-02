@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -53,7 +55,7 @@ var DEFAULT_ADJUSTED_SIZE = 0;
 var DEFAULT_RESIZE_DEBOUNCE_TIME = 500;
 var DEFAULT_VIDEO_OPTIONS = {
   preload: 'auto',
-  autoplay: true,
+  autoPlay: true,
   controls: true
 };
 
@@ -259,6 +261,7 @@ var ReactVideoJsComponent = function (_Component) {
   }, {
     key: 'playVideo',
     value: function playVideo() {
+      console.log('playing');
       this._player.play();
     }
   }, {
@@ -269,7 +272,7 @@ var ReactVideoJsComponent = function (_Component) {
   }, {
     key: 'restartVideo',
     value: function restartVideo() {
-      this._player.currentTime(0).play();
+      this._player.currentTime(0);
     }
   }, {
     key: 'togglePauseVideo',
@@ -290,6 +293,7 @@ var ReactVideoJsComponent = function (_Component) {
       }
 
       if (this.props.startWithControlBar) {
+        console.log('starting with control bar');
         this._player.bigPlayButton.hide();
         this._player.controlBar.show();
         this._player.userActive(true);
@@ -340,10 +344,12 @@ var ReactVideoJsComponent = function (_Component) {
         'vjs-default-skin': this.props.vjsDefaultSkin,
         'vjs-big-play-centered': this.props.vjsBigPlayCentered
       });
-
+      var inputProps = this.props.options;
       return _react2.default.createElement(
         'video',
-        { ref: 'videoPlayer', className: videoPlayerClasses },
+        _extends({ ref: 'videoPlayer',
+          className: videoPlayerClasses
+        }, inputProps),
         this.props.children || this.renderDefaultWarning()
       );
     }
