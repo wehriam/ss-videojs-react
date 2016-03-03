@@ -261,7 +261,6 @@ var ReactVideoJsComponent = function (_Component) {
   }, {
     key: 'playVideo',
     value: function playVideo() {
-      console.log('playing');
       this._player.play();
     }
   }, {
@@ -293,7 +292,6 @@ var ReactVideoJsComponent = function (_Component) {
       }
 
       if (this.props.startWithControlBar) {
-        console.log('starting with control bar');
         this._player.bigPlayButton.hide();
         this._player.controlBar.show();
         this._player.userActive(true);
@@ -377,7 +375,7 @@ ReactVideoJsComponent.propTypes = {
   vjsBigPlayCentered: _react2.default.PropTypes.bool,
   startWithControlBar: _react2.default.PropTypes.bool,
   markers: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object),
-  children: _react2.default.PropTypes.element,
+  children: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.object, _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.element), _react2.default.PropTypes.element]),
   dispose: _react2.default.PropTypes.bool,
   onNextVideo: _react2.default.PropTypes.func
 };

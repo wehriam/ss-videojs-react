@@ -46,7 +46,9 @@ export default class ReactVideoJsComponent extends Component {
     vjsBigPlayCentered: React.PropTypes.bool,
     startWithControlBar: React.PropTypes.bool,
     markers: React.PropTypes.arrayOf(React.PropTypes.object),
-    children: React.PropTypes.element,
+    children: React.PropTypes.oneOfType([React.PropTypes.object,
+      React.PropTypes.arrayOf(React.PropTypes.element),
+      React.PropTypes.element]),
     dispose: React.PropTypes.bool,
     onNextVideo: React.PropTypes.func
   };
