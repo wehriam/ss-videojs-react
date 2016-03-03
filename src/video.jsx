@@ -301,7 +301,15 @@ export default class ReactVideoJsComponent extends Component {
   }
 
   _videoElementWidth() {
-    return this.getVideoPlayerEl().parentElement.parentElement.offsetWidth;
+    const playerElement = this.getVideoPlayerEl().parentElement
+    if (!playerElement) {
+      return window.innerWidth
+    }
+    const parentElement = playerElement.parentElement
+    if (!parentElement) {
+      return window.innerWidth
+    }
+    return parentElement.offsetWidth
   }
 
   render() {

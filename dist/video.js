@@ -331,7 +331,15 @@ var ReactVideoJsComponent = function (_Component) {
   }, {
     key: '_videoElementWidth',
     value: function _videoElementWidth() {
-      return this.getVideoPlayerEl().parentElement.parentElement.offsetWidth;
+      var playerElement = this.getVideoPlayerEl().parentElement;
+      if (!playerElement) {
+        return window.innerWidth;
+      }
+      var parentElement = playerElement.parentElement;
+      if (!parentElement) {
+        return window.innerWidth;
+      }
+      return parentElement.offsetWidth;
     }
   }, {
     key: 'render',
