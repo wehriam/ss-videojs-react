@@ -1,6 +1,6 @@
 {
   "name": "ss-videojs-react",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "React Component for video.js",
   "main": "dist/video.js",
   "scripts": {
