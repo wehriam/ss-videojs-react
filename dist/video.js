@@ -48,6 +48,7 @@ var _forEach = _lodash2.default.forEach;
 var _debounce = _lodash2.default.debounce;
 var _defaults = _lodash2.default.defaults;
 
+
 var DEFAULT_HEIGHT = 540;
 var DEFAULT_WIDTH = 960;
 var DEFAULT_ASPECT_RATIO = 9 / 16;
@@ -331,15 +332,11 @@ var ReactVideoJsComponent = function (_Component) {
   }, {
     key: '_videoElementWidth',
     value: function _videoElementWidth() {
-      var playerElement = this.getVideoPlayerEl().parentElement;
-      if (!playerElement) {
+      var videoPlayer = this.getVideoPlayerEl();
+      if (!videoPlayer) {
         return window.innerWidth;
       }
-      var parentElement = playerElement.parentElement;
-      if (!parentElement) {
-        return window.innerWidth;
-      }
-      return parentElement.offsetWidth;
+      return _lodash2.default.get(videoPlayer, 'parentElement.parentElement.offsetWidth', window.innerWidth);
     }
   }, {
     key: 'render',

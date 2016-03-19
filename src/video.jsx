@@ -6,6 +6,7 @@ import vjs from './videojs';
 var _forEach = lodash.forEach;
 var _debounce = lodash.debounce;
 var _defaults = lodash.defaults;
+import _ from 'lodash'
 
 import MarkerBar from './markerBar';
 import Marker from './marker';
@@ -301,15 +302,11 @@ export default class ReactVideoJsComponent extends Component {
   }
 
   _videoElementWidth() {
-    const playerElement = this.getVideoPlayerEl().parentElement
-    if (!playerElement) {
+    const videoPlayer = this.getVideoPlayerEl()
+    if (!videoPlayer) {
       return window.innerWidth
     }
-    const parentElement = playerElement.parentElement
-    if (!parentElement) {
-      return window.innerWidth
-    }
-    return parentElement.offsetWidth
+    return _.get(videoPlayer, 'parentElement.parentElement.offsetWidth', window.innerWidth)
   }
 
   render() {
