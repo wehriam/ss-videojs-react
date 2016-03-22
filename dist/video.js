@@ -205,6 +205,10 @@ var ReactVideoJsComponent = function (_Component) {
 
       player.ready(this.handleVideoPlayerReady.bind(this));
 
+      if (this.props.unboundOnReady) {
+        player.ready(this.props.unboundOnReady);
+      }
+
       _forEach(this.props.eventListeners, function (val, key) {
         player.on(key, val);
       });
@@ -369,6 +373,7 @@ ReactVideoJsComponent.propTypes = {
   options: _react2.default.PropTypes.object,
   onReady: _react2.default.PropTypes.func,
   eventListeners: _react2.default.PropTypes.object,
+  unboundOnReady: _react2.default.PropTypes.func,
   resize: _react2.default.PropTypes.bool,
   resizeOptions: _react2.default.PropTypes.shape({
     aspectRatio: _react2.default.PropTypes.number,

@@ -36,6 +36,7 @@ export default class ReactVideoJsComponent extends Component {
     options: React.PropTypes.object,
     onReady: React.PropTypes.func,
     eventListeners: React.PropTypes.object,
+    unboundOnReady: React.PropTypes.func,
     resize: React.PropTypes.bool,
     resizeOptions: React.PropTypes.shape({
       aspectRatio: React.PropTypes.number,
@@ -192,6 +193,10 @@ export default class ReactVideoJsComponent extends Component {
     _forEach(this.props.markers, this.drawMarker.bind(this));
 
     player.ready(this.handleVideoPlayerReady.bind(this));
+
+    if (this.props.unboundOnReady) {
+      player.ready(this.props.unboundOnReady)
+    }
 
     _forEach(this.props.eventListeners, function(val, key) {
       player.on(key, val);
