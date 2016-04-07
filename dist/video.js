@@ -110,6 +110,8 @@ var ReactVideoJsComponent = function (_Component) {
       var newSrc = nextProps.src;
 
       if (currentSrc !== newSrc) {
+        this.addTextTracks(nextProps);
+        this.setPoster(nextProps);
         this.setVideoPlayerSrc(newSrc);
         this.restartVideo();
       }
@@ -213,10 +215,40 @@ var ReactVideoJsComponent = function (_Component) {
         player.on(key, val);
       });
 
+      this.addTextTracks(this.props);
+      this.setPoster(this.props);
       player.src(src);
 
       if (this.props.endlessMode) {
         this.addEndlessMode();
+      }
+    }
+  }, {
+    key: 'setPoster',
+    value: function setPoster(_ref) {
+      var poster = _ref.poster;
+
+      var $poster = jQuery('.vjs-poster', this._player.id);
+      $poster.removeClass('vjs-hidden');
+      $poster.css('background-image', 'url(\'' + poster + '\')');
+    }
+  }, {
+    key: 'addTextTracks',
+    value: function addTextTracks(_ref2) {
+      var _this2 = this;
+
+      var tracks = _ref2.tracks;
+
+      var currentTracks = this._player.textTracks();
+      if (currentTracks) {
+        currentTracks.tracks_.map(function (track) {
+          _this2._player.removeRemoteTextTrack(track);
+        });
+      }
+      if (tracks) {
+        tracks.map(function (track) {
+          _this2._player.addRemoteTextTrack(track);
+        });
       }
     }
   }, {
@@ -372,6 +404,8 @@ ReactVideoJsComponent.propTypes = {
   endlessMode: _react2.default.PropTypes.bool,
   options: _react2.default.PropTypes.object,
   onReady: _react2.default.PropTypes.func,
+  poster: _react2.default.PropTypes.string,
+  tracks: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object),
   eventListeners: _react2.default.PropTypes.object,
   unboundOnReady: _react2.default.PropTypes.func,
   resize: _react2.default.PropTypes.bool,

@@ -35,6 +35,8 @@ export default class ReactVideoJsComponent extends Component {
     endlessMode: React.PropTypes.bool,
     options: React.PropTypes.object,
     onReady: React.PropTypes.func,
+    poster: React.PropTypes.string,
+    tracks: React.PropTypes.arrayOf(React.PropTypes.object),
     eventListeners: React.PropTypes.object,
     unboundOnReady: React.PropTypes.func,
     resize: React.PropTypes.bool,
@@ -108,6 +110,8 @@ export default class ReactVideoJsComponent extends Component {
     var newSrc = nextProps.src;
 
     if (currentSrc !== newSrc) {
+      this.addTextTracks(nextProps)
+      this.setPoster(nextProps)
       this.setVideoPlayerSrc(newSrc);
       this.restartVideo();
     }
@@ -202,10 +206,32 @@ export default class ReactVideoJsComponent extends Component {
       player.on(key, val);
     });
 
+    this.addTextTracks(this.props)
+    this.setPoster(this.props)
     player.src(src);
 
     if (this.props.endlessMode) {
       this.addEndlessMode();
+    }
+  }
+
+  setPoster({poster}) {
+    const $poster = jQuery('.vjs-poster', this._player.id)
+    $poster.removeClass('vjs-hidden')
+    $poster.css('background-image', `url('${poster}')`)
+  }
+
+  addTextTracks({tracks}) {
+    const currentTracks = this._player.textTracks()
+    if (currentTracks) {
+      currentTracks.tracks_.map((track) => {
+        this._player.removeRemoteTextTrack(track)
+      })
+    }
+    if (tracks) {
+      tracks.map((track) => {
+        this._player.addRemoteTextTrack(track)
+      })
     }
   }
 
